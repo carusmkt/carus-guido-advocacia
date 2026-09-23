@@ -14,20 +14,11 @@ assets/img/                   Logo, foto, favicon e imagem de compartilhamento
 robots.txt · sitemap.xml · site.webmanifest · .nojekyll
 ```
 
-## Dados a preencher antes de publicar
+## Dados do escritório
 
-Use "Localizar e substituir" em todos os arquivos:
+OAB/RS 121.554 · Rua Dr. Pantaleão, 270 – térreo, Santa Maria – RS · (55) 3307-7098 · WhatsApp (55) 98403-6693 · joaocguido@gmail.com
 
-| Placeholder | Substituir por |
-|---|---|
-| `OAB/RS 000.000` | Número de inscrição na OAB (obrigatório pelo Provimento 205/2021) |
-| `5500000000000` | WhatsApp/telefone com DDI+DDD, só números (ex.: `5555999998888`) |
-| `(00) 00000-0000` | Telefone formatado |
-| `contato@carusguido.adv.br` | E-mail do escritório |
-| `Endereço do escritório` / `Cidade – RS` | Endereço completo |
-| `https://carusguido.adv.br` | Domínio definitivo (canonical, sitemap, robots, Open Graph e JSON-LD) |
-
-Confirme também as **áreas de atuação** e o **horário de atendimento** em `index.html`.
+Pendente: domínio definitivo. Troque `https://carusguido.adv.br` (canonical, sitemap, robots, Open Graph e JSON-LD) se for outro.
 
 ## Publicar no GitHub Pages
 

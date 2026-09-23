@@ -443,3 +443,21 @@ em { font-style: italic; }
   .faq details { display: block !important; }
   body { background: #fff; color: #000; }
 }
+
+/* ---------- Mapa ---------- */
+.contact address { font-style: normal; }
+.map {
+  display: grid; grid-template-columns: 1.6fr 1fr; margin-top: clamp(3.5rem, 8vw, 6rem);
+  border: 1px solid color-mix(in srgb, var(--on-ink) 18%, transparent);
+}
+.map iframe {
+  display: block; width: 100%; height: 100%; min-height: 22rem; border: 0;
+  filter: grayscale(1) contrast(1.05); transition: filter .5s var(--ease);
+}
+.map:hover iframe, .map iframe:focus { filter: none; }
+.map__info { padding: clamp(1.8rem, 4vw, 3rem); display: flex; flex-direction: column; justify-content: center; align-items: flex-start; }
+.map__addr { font-family: var(--serif); font-size: clamp(1.25rem, 2.2vw, 1.6rem); line-height: 1.4; color: var(--on-ink); margin-bottom: 2rem; }
+@media (max-width: 760px) {
+  .map { grid-template-columns: 1fr; }
+  .map iframe { min-height: 18rem; }
+}
