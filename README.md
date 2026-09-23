@@ -18,7 +18,7 @@ robots.txt · sitemap.xml · site.webmanifest · .nojekyll
 
 OAB/RS 121.554 · Rua Dr. Pantaleão, 270 – térreo, Santa Maria – RS · (55) 3307-7098 · WhatsApp (55) 98403-6693 · joaocguido@gmail.com
 
-Pendente: domínio definitivo. Troque `https://carusguido.adv.br` (canonical, sitemap, robots, Open Graph e JSON-LD) se for outro.
+Endereço atual: https://carusmkt.github.io/carus-guido-advocacia/ (sem domínio próprio). Ao registrar um domínio, troque esse endereço em canonical, sitemap, robots, Open Graph e JSON-LD, e os caminhos `/carus-guido-advocacia/` do `404.html` por `/`.
 
 ## Publicar no GitHub Pages
 
@@ -27,7 +27,6 @@ Pendente: domínio definitivo. Troque `https://carusguido.adv.br` (canonical, si
 3. Domínio próprio: informe o domínio em **Custom domain**, ative **Enforce HTTPS** e configure o DNS conforme a documentação do GitHub.
 4. Após publicar, cadastre o site no **Google Search Console** e envie o `sitemap.xml`.
 
-> A página 404 usa caminhos absolutos (`/assets/...`) e só aparece estilizada com domínio próprio ou em um site `usuario.github.io`.
 
 ## Visualizar localmente
 
