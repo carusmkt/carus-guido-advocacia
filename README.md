@@ -1,0 +1,45 @@
+# Carús Guido Advocacia — site institucional
+
+Site estático (HTML + CSS + JS puro), sem dependências nem etapa de build. Pronto para GitHub Pages.
+
+## Estrutura
+
+```
+index.html                    Página principal
+politica-de-privacidade.html  Política de privacidade (LGPD)
+404.html                      Página de erro
+assets/css/style.css          Estilos (modo claro/escuro)
+assets/js/main.js             Tema, menu mobile, filtro das perguntas
+assets/img/                   Logo, foto, favicon e imagem de compartilhamento
+robots.txt · sitemap.xml · site.webmanifest · .nojekyll
+```
+
+## Dados a preencher antes de publicar
+
+Use "Localizar e substituir" em todos os arquivos:
+
+| Placeholder | Substituir por |
+|---|---|
+| `OAB/RS 000.000` | Número de inscrição na OAB (obrigatório pelo Provimento 205/2021) |
+| `5500000000000` | WhatsApp/telefone com DDI+DDD, só números (ex.: `5555999998888`) |
+| `(00) 00000-0000` | Telefone formatado |
+| `contato@carusguido.adv.br` | E-mail do escritório |
+| `Endereço do escritório` / `Cidade – RS` | Endereço completo |
+| `https://carusguido.adv.br` | Domínio definitivo (canonical, sitemap, robots, Open Graph e JSON-LD) |
+
+Confirme também as **áreas de atuação** e o **horário de atendimento** em `index.html`.
+
+## Publicar no GitHub Pages
+
+1. Crie um repositório (ex.: `carus-guido-advocacia`) e envie os arquivos.
+2. Em **Settings → Pages**, escolha *Deploy from a branch*, branch `main`, pasta `/ (root)`.
+3. Domínio próprio: informe o domínio em **Custom domain**, ative **Enforce HTTPS** e configure o DNS conforme a documentação do GitHub.
+4. Após publicar, cadastre o site no **Google Search Console** e envie o `sitemap.xml`.
+
+> A página 404 usa caminhos absolutos (`/assets/...`) e só aparece estilizada com domínio próprio ou em um site `usuario.github.io`.
+
+## Visualizar localmente
+
+```bash
+python3 -m http.server 8765
+```
