@@ -88,6 +88,53 @@
     reveals.forEach(function (el) { el.classList.add("is-visible"); });
   }
 
+  /* ---------- Aviso de cookies (LGPD) ---------- */
+  var CONSENT_KEY = "cookie-consent";
+  function savedConsent() {
+    try { return localStorage.getItem(CONSENT_KEY); } catch (e) { return null; }
+  }
+  function setConsent(value) {
+    try { localStorage.setItem(CONSENT_KEY, value); } catch (e) {}
+    if (typeof window.gtag === "function") {
+      window.gtag("consent", "update", { analytics_storage: value });
+    }
+    if (value === "granted") (window.dataLayer = window.dataLayer || []).push({ event: "consent_granted" });
+  }
+  var policyLink = document.querySelector('a[href*="politica-de-privacidade"]');
+  var policyHref = policyLink ? policyLink.getAttribute("href") : "politica-de-privacidade.html";
+  var banner = document.createElement("div");
+  banner.className = "cookie";
+  banner.setAttribute("role", "region");
+  banner.setAttribute("aria-label", "Aviso de cookies");
+  banner.hidden = true;
+  banner.innerHTML =
+    '<p class="cookie__title">Sua privacidade</p>' +
+    '<p>Usamos cookies do Google apenas para medir as visitas e melhorar o site, se você permitir. ' +
+    'Saiba mais na <a href="' + policyHref + '">Política de Privacidade</a>.</p>' +
+    '<div class="cookie__actions">' +
+    '<button type="button" class="btn btn--ghost" data-consent="denied">Recusar</button>' +
+    '<button type="button" class="btn" data-consent="granted">Aceitar</button>' +
+    '</div>';
+  document.body.appendChild(banner);
+
+  function showBanner(show) {
+    banner.hidden = !show;
+    root.classList.toggle("cookie-open", show);
+  }
+  banner.addEventListener("click", function (e) {
+    var btn = e.target.closest("[data-consent]");
+    if (!btn) return;
+    setConsent(btn.getAttribute("data-consent"));
+    showBanner(false);
+  });
+  document.addEventListener("click", function (e) {
+    if (!e.target.closest("[data-cookie-prefs]")) return;
+    showBanner(true);
+    banner.querySelector('[data-consent="granted"]').focus();
+  });
+  var initial = savedConsent();
+  if (initial !== "granted" && initial !== "denied") showBanner(true);
+
   var year = document.getElementById("year");
   if (year) year.textContent = new Date().getFullYear();
 })();
