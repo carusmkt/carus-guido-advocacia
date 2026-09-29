@@ -176,7 +176,7 @@ em { font-style: italic; }
 .header.is-scrolled { border-bottom-color: var(--line); }
 .header__inner { display: flex; align-items: center; justify-content: space-between; height: 4.75rem; gap: 1rem; }
 .header__brand { color: var(--text); display: block; }
-.header__brand .logo { height: 3rem; }
+.header__brand .logo { height: 3.6rem; aspect-ratio: 1110 / 1040; }
 
 .nav { display: flex; align-items: center; gap: 2.2rem; }
 .nav__list { display: flex; gap: 2rem; list-style: none; margin: 0; padding: 0; }
@@ -228,7 +228,22 @@ em { font-style: italic; }
 }
 
 /* ---------- Hero ---------- */
-.hero { padding: clamp(3rem, 8vw, 6.5rem) 0 var(--section); }
+.hero { position: relative; overflow: hidden; isolation: isolate; padding: clamp(3rem, 8vw, 6.5rem) 0 var(--section); }
+.hero > .wrap { position: relative; z-index: 1; }
+.hero__grid:has(> :only-child) { grid-template-columns: minmax(0, 46rem); min-height: min(62svh, 36rem); align-content: center; }
+/* Logo em marca d'água ocupando o fundo do início */
+.hero__mark {
+  position: absolute; z-index: 0;
+  inset: 4% max(var(--gutter), calc((100vw - var(--wrap)) / 2)) 6% auto;
+  width: min(70vw, 60rem); height: auto;
+  -webkit-mask-position: right center; mask-position: right center;
+  -webkit-mask-size: contain; mask-size: contain;
+  color: var(--text); opacity: .055;
+  pointer-events: none;
+}
+@media (max-width: 860px) {
+  .hero__mark { inset: auto -6% 2% auto; width: 108vw; aspect-ratio: 1110 / 1040; opacity: .06; }
+}
 .hero__grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: clamp(2.5rem, 6vw, 6rem); align-items: center; }
 .hero h1 { margin-bottom: 1.8rem; }
 .hero h1 em { font-weight: 300; color: var(--muted); }
