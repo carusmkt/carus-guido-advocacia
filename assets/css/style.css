@@ -4,6 +4,12 @@
            Bright Snow #F9F8F6 · Parchment #F2F0ED · Iron Grey #474747
    ========================================================================== */
 
+/* Fontes hospedadas no próprio site (subconjunto latino) */
+@font-face { font-family: "Inria Serif"; font-style: normal; font-weight: 300; font-display: swap; src: url("../fonts/inria-serif-300.woff2") format("woff2"); }
+@font-face { font-family: "Inria Serif"; font-style: normal; font-weight: 400; font-display: swap; src: url("../fonts/inria-serif-400.woff2") format("woff2"); }
+@font-face { font-family: "Inria Serif"; font-style: italic; font-weight: 300; font-display: swap; src: url("../fonts/inria-serif-300-italic.woff2") format("woff2"); }
+@font-face { font-family: "Montserrat"; font-style: normal; font-weight: 300 500; font-display: swap; src: url("../fonts/montserrat-variable.woff2") format("woff2"); }
+
 :root {
   --bg: #F9F8F6;
   --bg-alt: #F2F0ED;
@@ -24,6 +30,7 @@
   --gutter: clamp(1rem, 4vw, 2.5rem);
   --section: clamp(4.5rem, 10vw, 8.5rem);
   --radius: 2px;
+  --radius-photo: 10px;
   --ease: cubic-bezier(.2, .7, .2, 1);
   color-scheme: light;
 }
@@ -232,10 +239,10 @@ em { font-style: italic; }
 .portrait__img { position: relative; }
 .portrait__img::before {
   content: ""; position: absolute; inset: 1.5rem -1.5rem -1.5rem 1.5rem;
-  border: 1px solid var(--line-strong); z-index: 0;
+  border: 1px solid var(--line-strong); z-index: 0; border-radius: var(--radius-photo);
 }
-.portrait img { position: relative; z-index: 1; width: 100%; aspect-ratio: 1 / 1; object-fit: cover; background: #4a4a4a; filter: grayscale(12%); }
-.portrait--place img { aspect-ratio: 4 / 5; background: #8d8a86; filter: none; }
+.portrait img { position: relative; z-index: 1; width: 100%; aspect-ratio: 1 / 1; object-fit: cover; background: #4a4a4a; filter: grayscale(12%); border-radius: var(--radius-photo); }
+.portrait--place img { aspect-ratio: 1 / 1; background: #8d8a86; filter: none; }
 .portrait figcaption {
   position: relative; z-index: 1; margin-top: 2.4rem;
   font-size: .72rem; letter-spacing: .2em; text-transform: uppercase; color: var(--muted);
@@ -344,6 +351,15 @@ em { font-style: italic; }
 }
 .chip:hover { border-color: var(--text); color: var(--text); }
 .chip[aria-pressed="true"] { background: var(--ink); border-color: var(--ink); color: var(--on-ink); }
+@media (max-width: 760px) {
+  .filters {
+    flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none;
+    margin-inline: calc(var(--gutter) * -1); padding-inline: var(--gutter);
+    scroll-padding-inline: var(--gutter);
+  }
+  .filters::-webkit-scrollbar { display: none; }
+  .chip { flex: none; white-space: nowrap; }
+}
 
 .faq { border-top: 1px solid var(--line-strong); }
 .faq details { border-bottom: 1px solid var(--line); }
@@ -403,6 +419,9 @@ em { font-style: italic; }
 @media (max-width: 860px) {
   .contact__grid { grid-template-columns: 1fr; }
   .contact__list li { grid-template-columns: 1fr; gap: .1rem; }
+  .contact__list a { display: inline-block; padding: .55rem 0; }
+  .footer__nav { gap: 0 1.6rem; }
+  .footer__nav a, .footer__nav .footer__link { display: inline-block; padding: .9rem 0; }
 }
 
 /* ---------- Rodapé ---------- */
@@ -451,7 +470,7 @@ em { font-style: italic; }
 .gallery__track {
   --inset: max(var(--gutter), calc((100vw - var(--wrap)) / 2 + var(--gutter)));
   list-style: none; margin: 0; padding: 0 var(--inset) 1rem;
-  display: grid; grid-auto-flow: column; grid-auto-columns: min(76vw, 900px); gap: clamp(1rem, 2.5vw, 2rem);
+  display: grid; grid-auto-flow: column; grid-auto-columns: min(62vw, 760px, calc((100svh - 17rem) * 4 / 3)); gap: clamp(1rem, 2.5vw, 2rem);
   overflow-x: auto; overscroll-behavior-x: contain;
   scroll-snap-type: x mandatory; scroll-padding-inline: var(--inset);
   scrollbar-width: thin; scrollbar-color: var(--line-strong) transparent;
@@ -463,6 +482,7 @@ em { font-style: italic; }
 .gallery__item figure { margin: 0; }
 .gallery__item img {
   width: 100%; aspect-ratio: 4 / 3; object-fit: cover; background: var(--line);
+  border-radius: var(--radius-photo);
   transition: filter .6s var(--ease);
 }
 .gallery__item:not(.is-current) img { filter: saturate(.55) brightness(.94); }
@@ -482,9 +502,9 @@ em { font-style: italic; }
 .lawyer__photo { position: relative; margin: 0; max-width: 26rem; }
 .lawyer__photo::before {
   content: ""; position: absolute; inset: -1.5rem 1.5rem 1.5rem -1.5rem;
-  border: 1px solid var(--line-strong);
+  border: 1px solid var(--line-strong); border-radius: var(--radius-photo);
 }
-.lawyer__photo img { position: relative; width: 100%; aspect-ratio: 4 / 5; object-fit: cover; background: #3f3f3f; }
+.lawyer__photo img { position: relative; width: 100%; aspect-ratio: 4 / 5; object-fit: cover; background: #3f3f3f; border-radius: var(--radius-photo); }
 .lawyer__text h2 { margin-bottom: .35rem; }
 .lawyer__oab { font-size: .72rem; letter-spacing: .2em; text-transform: uppercase; color: var(--muted); margin-bottom: 2rem; }
 .lawyer__subtitle { font-family: var(--sans); font-weight: 400; font-size: .72rem; letter-spacing: .28em; text-transform: uppercase; color: var(--muted); margin: 2.8rem 0 0; }

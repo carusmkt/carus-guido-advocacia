@@ -43,9 +43,8 @@
     try { var t = localStorage.getItem("theme"); if (t) document.documentElement.setAttribute("data-theme", t); } catch (e) {}
   </script>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inria+Serif:ital,wght@0,300;0,400;1,300&family=Montserrat:wght@300;400;500&display=swap">
+  <link rel="preload" href="assets/fonts/inria-serif-300.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/montserrat-variable.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" as="image" href="assets/img/carus-guido-placa-1000.webp" imagesrcset="assets/img/carus-guido-placa-560.webp 560w, assets/img/carus-guido-placa-1000.webp 1000w" imagesizes="(max-width: 860px) 90vw, 480px" fetchpriority="high">
   <link rel="stylesheet" href="assets/css/style.css">
 
@@ -153,8 +152,8 @@
             src="assets/img/carus-guido-placa-1000.webp"
             srcset="assets/img/carus-guido-placa-560.webp 560w, assets/img/carus-guido-placa-1000.webp 1000w"
             sizes="(max-width: 860px) 90vw, 480px"
-            width="1000" height="1250"
-            alt="Placa do escritório Carús Guido Advocacia em vidro escuro, fixada na parede de textura cinza da recepção"
+            width="1000" height="1000"
+            alt="Placa do escritório Carús Guido Advocacia em vidro escuro, fixada em parede de concreto aparente"
             fetchpriority="high" decoding="async"></div>
           <figcaption><strong>Rua Dr. Pantaleão, 270</strong>Santa Maria · RS</figcaption>
         </figure>
@@ -219,25 +218,25 @@
       <ul class="gallery__track" tabindex="0" aria-label="Fotos do escritório. Use as setas do teclado para navegar.">
           <li class="gallery__item">
             <figure>
-              <img src="assets/img/escritorio-sala-1400.webp" srcset="assets/img/escritorio-sala-800.webp 800w, assets/img/escritorio-sala-1400.webp 1400w" sizes="(max-width: 760px) 86vw, min(76vw, 900px)" width="1400" height="1050" loading="lazy" decoding="async" alt="Sala de atendimento com mesa escura, cadeira executiva de couro preto, televisor na parede e persianas pretas nas janelas">
+              <img src="assets/img/escritorio-sala-1400.webp" srcset="assets/img/escritorio-sala-800.webp 800w, assets/img/escritorio-sala-1100.webp 1100w, assets/img/escritorio-sala-1400.webp 1400w" sizes="(max-width: 760px) 86vw, 760px" width="1400" height="1050" loading="lazy" decoding="async" alt="Sala de atendimento com mesa escura, cadeira executiva de couro preto, televisor na parede e persianas pretas nas janelas">
               <figcaption><span>01</span>Sala de atendimento</figcaption>
             </figure>
           </li>
           <li class="gallery__item">
             <figure>
-              <img src="assets/img/escritorio-reunioes-1400.webp" srcset="assets/img/escritorio-reunioes-800.webp 800w, assets/img/escritorio-reunioes-1400.webp 1400w" sizes="(max-width: 760px) 86vw, min(76vw, 900px)" width="1400" height="1050" loading="lazy" decoding="async" alt="Sala de reuniões com mesa retangular preta, cadeiras de couro, notebook sobre a mesa e iluminação embutida">
+              <img src="assets/img/escritorio-reunioes-1400.webp" srcset="assets/img/escritorio-reunioes-800.webp 800w, assets/img/escritorio-reunioes-1100.webp 1100w, assets/img/escritorio-reunioes-1400.webp 1400w" sizes="(max-width: 760px) 86vw, 760px" width="1400" height="1050" loading="lazy" decoding="async" alt="Sala de reuniões com mesa retangular preta, cadeiras de couro, notebook sobre a mesa e iluminação embutida">
               <figcaption><span>02</span>Sala de reuniões</figcaption>
             </figure>
           </li>
           <li class="gallery__item">
             <figure>
-              <img src="assets/img/escritorio-recepcao-1400.webp" srcset="assets/img/escritorio-recepcao-800.webp 800w, assets/img/escritorio-recepcao-1400.webp 1400w" sizes="(max-width: 760px) 86vw, min(76vw, 900px)" width="1400" height="1050" loading="lazy" decoding="async" alt="Recepção com duas poltronas de couro marrom, plantas e janelas amplas voltadas para a rua">
+              <img src="assets/img/escritorio-recepcao-1400.webp" srcset="assets/img/escritorio-recepcao-800.webp 800w, assets/img/escritorio-recepcao-1100.webp 1100w, assets/img/escritorio-recepcao-1400.webp 1400w" sizes="(max-width: 760px) 86vw, 760px" width="1400" height="1050" loading="lazy" decoding="async" alt="Recepção com duas poltronas de couro marrom, plantas e janelas amplas voltadas para a rua">
               <figcaption><span>03</span>Recepção</figcaption>
             </figure>
           </li>
           <li class="gallery__item">
             <figure>
-              <img src="assets/img/escritorio-entrada-1400.webp" srcset="assets/img/escritorio-entrada-800.webp 800w, assets/img/escritorio-entrada-1400.webp 1400w" sizes="(max-width: 760px) 86vw, min(76vw, 900px)" width="1400" height="1050" loading="lazy" decoding="async" alt="Entrada do escritório no térreo, com porta de vidro, poltronas, plantas e piso claro">
+              <img src="assets/img/escritorio-entrada-1400.webp" srcset="assets/img/escritorio-entrada-800.webp 800w, assets/img/escritorio-entrada-1100.webp 1100w, assets/img/escritorio-entrada-1400.webp 1400w" sizes="(max-width: 760px) 86vw, 760px" width="1400" height="1050" loading="lazy" decoding="async" alt="Entrada do escritório no térreo, com porta de vidro, poltronas, plantas e piso claro">
               <figcaption><span>04</span>Entrada</figcaption>
             </figure>
           </li>
@@ -248,7 +247,7 @@
     <section class="section section--alt lawyer" id="advogado" aria-labelledby="advogado-titulo">
       <div class="wrap lawyer__grid">
         <figure class="lawyer__photo reveal">
-          <img src="assets/img/joao-carlos-carus-guido-900.webp" srcset="assets/img/joao-carlos-carus-guido-560.webp 560w, assets/img/joao-carlos-carus-guido-900.webp 900w" sizes="(max-width: 860px) 90vw, 420px" width="900" height="1125" loading="lazy" decoding="async" alt="Retrato do advogado João Carlos Carús Guido sorrindo, de terno azul-marinho, camisa branca e gravata vermelha, em fundo cinza">
+          <img src="assets/img/joao-carlos-carus-guido-900.webp" srcset="assets/img/joao-carlos-carus-guido-560.webp 560w, assets/img/joao-carlos-carus-guido-900.webp 900w" sizes="(max-width: 860px) 90vw, 420px" width="900" height="1125" loading="lazy" decoding="async" alt="Retrato do advogado João Carlos Carús Guido sorrindo, de terno azul-marinho, camisa branca e gravata vermelha, diante de uma janela com persianas">
         </figure>
         <div class="lawyer__text reveal">
           <p class="eyebrow">Sobre o advogado</p>
