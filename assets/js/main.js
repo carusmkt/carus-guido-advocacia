@@ -75,6 +75,52 @@
     });
   }
 
+  /* ---------- Galeria do escritório ---------- */
+  var track = document.querySelector(".gallery__track");
+  if (track) {
+    var slides = Array.prototype.slice.call(track.querySelectorAll(".gallery__item"));
+    var prevBtn = document.querySelector("[data-gallery-prev]");
+    var nextBtn = document.querySelector("[data-gallery-next]");
+    var counter = document.querySelector("[data-gallery-current]");
+    var current = 0;
+
+    function pad(n) { return (n < 10 ? "0" : "") + n; }
+    function update() {
+      var start = track.getBoundingClientRect().left + parseFloat(getComputedStyle(track).scrollPaddingLeft || 0);
+      var best = 0, bestDist = Infinity;
+      slides.forEach(function (slide, i) {
+        var d = Math.abs(slide.getBoundingClientRect().left - start);
+        if (d < bestDist) { bestDist = d; best = i; }
+      });
+      var atEnd = track.scrollLeft + track.clientWidth >= track.scrollWidth - 2;
+      if (atEnd) best = slides.length - 1;
+      current = best;
+      slides.forEach(function (slide, i) { slide.classList.toggle("is-current", i === current); });
+      if (counter) counter.textContent = pad(current + 1);
+      if (prevBtn) prevBtn.disabled = track.scrollLeft <= 2;
+      if (nextBtn) nextBtn.disabled = atEnd;
+    }
+    function go(i) {
+      i = Math.max(0, Math.min(slides.length - 1, i));
+      var start = track.getBoundingClientRect().left + parseFloat(getComputedStyle(track).scrollPaddingLeft || 0);
+      track.scrollBy({ left: slides[i].getBoundingClientRect().left - start, behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
+    }
+    var ticking = false;
+    track.addEventListener("scroll", function () {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(function () { ticking = false; update(); });
+    }, { passive: true });
+    window.addEventListener("resize", update);
+    if (prevBtn) prevBtn.addEventListener("click", function () { go(current - 1); });
+    if (nextBtn) nextBtn.addEventListener("click", function () { go(current + 1); });
+    track.addEventListener("keydown", function (e) {
+      if (e.key === "ArrowRight") { e.preventDefault(); go(current + 1); }
+      if (e.key === "ArrowLeft") { e.preventDefault(); go(current - 1); }
+    });
+    update();
+  }
+
   /* ---------- Entrada suave das seções ---------- */
   var reveals = document.querySelectorAll(".reveal");
   if ("IntersectionObserver" in window && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {

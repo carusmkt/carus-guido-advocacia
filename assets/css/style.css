@@ -235,6 +235,7 @@ em { font-style: italic; }
   border: 1px solid var(--line-strong); z-index: 0;
 }
 .portrait img { position: relative; z-index: 1; width: 100%; aspect-ratio: 1 / 1; object-fit: cover; background: #4a4a4a; filter: grayscale(12%); }
+.portrait--place img { aspect-ratio: 4 / 5; background: #8d8a86; filter: none; }
 .portrait figcaption {
   position: relative; z-index: 1; margin-top: 2.4rem;
   font-size: .72rem; letter-spacing: .2em; text-transform: uppercase; color: var(--muted);
@@ -247,20 +248,25 @@ em { font-style: italic; }
 }
 
 /* ---------- Faixa de manifesto ---------- */
-.statement { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.statement {
+  padding: clamp(4rem, 9vw, 7rem) 0;
+  background: #E0E3E5; color: #2A2828;
+}
 .statement blockquote {
   margin: 0 auto; max-width: 56rem; text-align: center;
   font-family: var(--serif); font-weight: 300; font-style: italic;
-  font-size: clamp(1.45rem, 3vw, 2.2rem); line-height: 1.45; color: var(--text);
+  font-size: clamp(1.45rem, 3vw, 2.2rem); line-height: 1.45; color: #2A2828;
 }
-.statement cite { display: block; margin-top: 1.8rem; font-family: var(--sans); font-style: normal; font-size: .72rem; letter-spacing: .28em; text-transform: uppercase; color: var(--muted); }
+.statement cite { display: flex; align-items: center; justify-content: center; gap: .9rem; margin-top: 1.8rem; font-family: var(--sans); font-style: normal; font-size: .72rem; letter-spacing: .28em; text-transform: uppercase; color: #4F555B; }
+.statement cite::before, .statement cite::after { content: ""; width: 2.25rem; height: 1px; background: #9EA7B0; }
+.statement ::selection { background: #474747; color: #F9F8F6; }
 
 /* ---------- Sobre / Advogado ---------- */
 .about { display: grid; grid-template-columns: .85fr 1.15fr; gap: clamp(2.5rem, 7vw, 7rem); align-items: start; }
 .about__aside .logo { width: min(100%, 17rem); color: var(--text); opacity: .92; }
 .credentials { list-style: none; margin: 2.5rem 0 0; padding: 0; border-top: 1px solid var(--line); }
-.credentials li { padding: 1.2rem 0; border-bottom: 1px solid var(--line); display: grid; grid-template-columns: 7.5rem 1fr; gap: 1rem; }
-.credentials span { font-size: .7rem; letter-spacing: .2em; text-transform: uppercase; color: var(--muted); padding-top: .3rem; }
+.credentials li { padding: 1.2rem 0; border-bottom: 1px solid var(--line); display: grid; grid-template-columns: 9.5rem 1fr; gap: 1.25rem; }
+.credentials span { font-size: .7rem; letter-spacing: .2em; text-transform: uppercase; color: var(--muted); padding-top: .3rem; white-space: nowrap; }
 .credentials p { margin: 0; color: var(--text); }
 @media (max-width: 860px) {
   .about { grid-template-columns: 1fr; }
@@ -426,6 +432,68 @@ em { font-style: italic; }
 .prose { max-width: 46rem; }
 .prose h2 { font-size: clamp(1.5rem, 3vw, 2rem); margin-top: 2.6rem; }
 .prose ul { padding-left: 1.2rem; }
+
+/* ---------- Galeria do escritório ---------- */
+.gallery { padding-bottom: calc(var(--section) * .8); }
+.gallery__head { display: flex; justify-content: space-between; align-items: flex-end; gap: 2rem; margin-bottom: clamp(2rem, 5vw, 3.5rem); }
+.gallery__head h2 { max-width: 38rem; margin-bottom: 0; text-wrap: balance; }
+.gallery__controls { display: flex; align-items: center; gap: .6rem; flex: none; }
+.gallery__count { margin-right: .9rem; font-size: .72rem; letter-spacing: .2em; color: var(--muted); font-variant-numeric: tabular-nums; }
+.gallery__count b { font-weight: 400; color: var(--text); }
+.gallery__btn {
+  width: 3rem; height: 3rem; border-radius: 50%; display: grid; place-items: center;
+  border: 1px solid var(--line-strong); background: transparent; color: var(--text); cursor: pointer;
+  transition: border-color .3s var(--ease), background-color .3s var(--ease), opacity .3s var(--ease);
+}
+.gallery__btn:hover { border-color: var(--text); }
+.gallery__btn:disabled { opacity: .35; cursor: default; border-color: var(--line-strong); }
+.gallery__btn svg { width: 1.1rem; height: 1.1rem; }
+.gallery__track {
+  --inset: max(var(--gutter), calc((100vw - var(--wrap)) / 2 + var(--gutter)));
+  list-style: none; margin: 0; padding: 0 var(--inset) 1rem;
+  display: grid; grid-auto-flow: column; grid-auto-columns: min(76vw, 900px); gap: clamp(1rem, 2.5vw, 2rem);
+  overflow-x: auto; overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory; scroll-padding-inline: var(--inset);
+  scrollbar-width: thin; scrollbar-color: var(--line-strong) transparent;
+}
+.gallery__track::-webkit-scrollbar { height: 2px; }
+.gallery__track::-webkit-scrollbar-thumb { background: var(--line-strong); }
+.gallery__track:focus-visible { outline-offset: -1px; }
+.gallery__item { scroll-snap-align: start; }
+.gallery__item figure { margin: 0; }
+.gallery__item img {
+  width: 100%; aspect-ratio: 4 / 3; object-fit: cover; background: var(--line);
+  transition: filter .6s var(--ease);
+}
+.gallery__item:not(.is-current) img { filter: saturate(.55) brightness(.94); }
+.gallery__item figcaption {
+  display: flex; align-items: baseline; gap: 1rem; padding-top: 1rem;
+  font-family: var(--serif); font-size: 1.1rem; color: var(--text);
+}
+.gallery__item figcaption span { font-family: var(--sans); font-size: .7rem; letter-spacing: .2em; color: var(--muted); font-variant-numeric: tabular-nums; }
+.no-js .gallery__controls { display: none; }
+@media (max-width: 760px) {
+  .gallery__head { flex-direction: column; align-items: flex-start; }
+  .gallery__track { grid-auto-columns: 86vw; }
+}
+
+/* ---------- Sobre o advogado ---------- */
+.lawyer__grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: clamp(2.5rem, 7vw, 7rem); align-items: center; }
+.lawyer__photo { position: relative; margin: 0; max-width: 26rem; }
+.lawyer__photo::before {
+  content: ""; position: absolute; inset: -1.5rem 1.5rem 1.5rem -1.5rem;
+  border: 1px solid var(--line-strong);
+}
+.lawyer__photo img { position: relative; width: 100%; aspect-ratio: 4 / 5; object-fit: cover; background: #3f3f3f; }
+.lawyer__text h2 { margin-bottom: .35rem; }
+.lawyer__oab { font-size: .72rem; letter-spacing: .2em; text-transform: uppercase; color: var(--muted); margin-bottom: 2rem; }
+.lawyer__subtitle { font-family: var(--sans); font-weight: 400; font-size: .72rem; letter-spacing: .28em; text-transform: uppercase; color: var(--muted); margin: 2.8rem 0 0; }
+.lawyer .credentials { margin-top: 1.1rem; }
+.lawyer__cta { margin-top: 2.6rem; }
+@media (max-width: 860px) {
+  .lawyer__grid { grid-template-columns: 1fr; }
+  .lawyer__photo { width: calc(100% - 1.5rem); margin-left: 1.5rem; margin-top: 1.5rem; }
+}
 
 /* ---------- Animação de entrada ---------- */
 .reveal { opacity: 0; transform: translateY(18px); transition: opacity .9s var(--ease), transform .9s var(--ease); }

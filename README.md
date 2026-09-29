@@ -16,7 +16,7 @@ robots.txt · sitemap.xml · site.webmanifest · .nojekyll
 
 ## Dados do escritório
 
-OAB/RS 121.554 · Rua Dr. Pantaleão, 270 – térreo, Santa Maria – RS · (55) 3307-7098 · WhatsApp (55) 98403-6693 · joaocguido@gmail.com
+OAB/RS 121.554 · Rua Dr. Pantaleão, 270 – térreo, Santa Maria – RS · Telefone e WhatsApp (55) 3307-7098 · joaocguido@gmail.com
 
 Pendente: domínio definitivo. Troque `https://carusguido.adv.br` (canonical, sitemap, robots, Open Graph e JSON-LD) se for outro.
 
