@@ -45,6 +45,7 @@
 
   <link rel="preload" href="assets/fonts/inria-serif-300.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/montserrat-variable.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" as="image" href="assets/img/carus-guido-placa-1000.webp" imagesrcset="assets/img/carus-guido-placa-560.webp 560w, assets/img/carus-guido-placa-1000.webp 1000w" imagesizes="(max-width: 860px) 90vw, 480px" fetchpriority="high">
   <link rel="stylesheet" href="assets/css/style.css">
 
   <script type="application/ld+json">
@@ -135,7 +136,6 @@
 
     <!-- ============ INÍCIO ============ -->
     <section class="hero" id="inicio">
-      <span class="hero__mark logo" aria-hidden="true"></span>
       <div class="wrap hero__grid">
         <div>
           <p class="eyebrow">Carús Guido Advocacia</p>
@@ -147,6 +147,16 @@
           </div>
         </div>
 
+        <figure class="portrait portrait--place">
+          <div class="portrait__img"><img
+            src="assets/img/carus-guido-placa-1000.webp"
+            srcset="assets/img/carus-guido-placa-560.webp 560w, assets/img/carus-guido-placa-1000.webp 1000w"
+            sizes="(max-width: 860px) 90vw, 480px"
+            width="1000" height="1000"
+            alt="Placa do escritório Carús Guido Advocacia em vidro escuro, fixada em parede de concreto aparente"
+            fetchpriority="high" decoding="async"></div>
+          <figcaption><strong>Rua Dr. Pantaleão, 270</strong>Santa Maria · RS</figcaption>
+        </figure>
       </div>
     </section>
 
