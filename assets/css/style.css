@@ -297,19 +297,10 @@ em { font-style: italic; }
 }
 @media (prefers-reduced-motion: reduce) { .hero__media img { animation: none; } }
 
-/* Cabeçalho transparente sobre o início, até a primeira rolagem */
+/* Cabeçalho translúcido sobre o início, até a primeira rolagem */
 .header--overlay { position: fixed; left: 0; right: 0; }
 .header--overlay:not(.is-scrolled):not(.is-menu-open) {
-  background: transparent; border-bottom-color: transparent;
-  -webkit-backdrop-filter: none; backdrop-filter: none;
-}
-.header--overlay:not(.is-scrolled):not(.is-menu-open) .header__brand,
-.header--overlay:not(.is-scrolled):not(.is-menu-open) .nav__list a,
-.header--overlay:not(.is-scrolled):not(.is-menu-open) .icon-btn { color: #F9F8F6; }
-.header--overlay:not(.is-scrolled):not(.is-menu-open) .icon-btn:hover { border-color: rgba(249, 248, 246, .4); }
-.header--overlay:not(.is-scrolled):not(.is-menu-open) :focus-visible { outline-color: #F9F8F6; }
-.header--overlay .header__brand, .header--overlay .nav__list a, .header--overlay .icon-btn {
-  transition: color .4s var(--ease), border-color .3s var(--ease);
+  background: color-mix(in srgb, var(--bg) 58%, transparent);
 }
 
 /* ---------- Faixa de manifesto ---------- */
