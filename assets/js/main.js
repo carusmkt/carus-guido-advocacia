@@ -44,12 +44,14 @@
   function closeMenu() {
     if (!nav) return;
     nav.classList.remove("is-open");
+    if (header) header.classList.remove("is-menu-open");
     menuBtn.setAttribute("aria-expanded", "false");
     menuBtn.setAttribute("aria-label", "Abrir menu");
   }
   if (menuBtn && nav) {
     menuBtn.addEventListener("click", function () {
       var open = nav.classList.toggle("is-open");
+      if (header) header.classList.toggle("is-menu-open", open);
       menuBtn.setAttribute("aria-expanded", open ? "true" : "false");
       menuBtn.setAttribute("aria-label", open ? "Fechar menu" : "Abrir menu");
     });

@@ -45,7 +45,7 @@
 
   <link rel="preload" href="assets/fonts/inria-serif-300.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/montserrat-variable.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" as="image" href="assets/img/carus-guido-placa-1000.webp" imagesrcset="assets/img/carus-guido-placa-560.webp 560w, assets/img/carus-guido-placa-1000.webp 1000w" imagesizes="(max-width: 860px) 90vw, 480px" fetchpriority="high">
+  <link rel="preload" as="image" href="assets/img/hero-escritorio-1448.webp" imagesrcset="assets/img/hero-escritorio-900.webp 900w, assets/img/hero-escritorio-1448.webp 1448w" imagesizes="(max-aspect-ratio: 4/3) 134vh, 100vw" fetchpriority="high">
   <link rel="stylesheet" href="assets/css/style.css">
 
   <script type="application/ld+json">
@@ -103,7 +103,7 @@
   <!-- End Google Tag Manager (noscript) -->
   <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
 
-  <header class="header">
+  <header class="header header--overlay">
     <div class="wrap header__inner">
       <a class="header__brand" href="#inicio" aria-label="Carús Guido Advocacia — início">
         <span class="logo" role="img" aria-label="Carús Guido Advocacia"></span>
@@ -135,33 +135,27 @@
   <main id="conteudo">
 
     <!-- ============ INÍCIO ============ -->
-    <section class="hero" id="inicio">
-      <div class="wrap hero__grid">
-        <div>
-          <p class="eyebrow">Carús Guido Advocacia</p>
-          <h1>Decisões jurídicas bem tomadas começam <em>antes</em> do problema.</h1>
-          <p class="lead">Advocacia técnica, estratégica e próxima. Compreendemos cada caso em sua individualidade para transformar questões jurídicas complexas em caminhos claros e seguros.</p>
-          <div class="hero__cta">
-            <a class="btn" href="https://wa.me/555533077098?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20gostaria%20de%20agendar%20um%20atendimento" target="_blank" rel="noopener">Agendar atendimento</a>
-            <a class="btn btn--ghost" href="#perguntas">Quando procurar um advogado</a>
-          </div>
-        </div>
-
-        <figure class="portrait portrait--place">
-          <div class="portrait__img"><img
-            src="assets/img/carus-guido-placa-1000.webp"
-            srcset="assets/img/carus-guido-placa-560.webp 560w, assets/img/carus-guido-placa-1000.webp 1000w"
-            sizes="(max-width: 860px) 90vw, 480px"
-            width="1000" height="1000"
-            alt="Placa do escritório Carús Guido Advocacia em vidro escuro, fixada em parede de concreto aparente"
-            fetchpriority="high" decoding="async"></div>
-          <figcaption><strong>Rua Dr. Pantaleão, 270</strong>Santa Maria · RS</figcaption>
-        </figure>
+    <section class="hero" id="inicio" aria-labelledby="inicio-titulo">
+      <div class="hero__media" aria-hidden="true">
+        <img src="assets/img/hero-escritorio-1448.webp"
+          srcset="assets/img/hero-escritorio-900.webp 900w, assets/img/hero-escritorio-1448.webp 1448w"
+          sizes="(max-aspect-ratio: 4/3) 134vh, 100vw"
+          width="1448" height="1086" alt="" fetchpriority="high" decoding="async">
       </div>
+      <div class="wrap hero__content">
+        <h1 id="inicio-titulo">Clareza para decidir.<br><em>Presença para conduzir.</em></h1>
+        <p class="hero__lead">Orientação jurídica responsável, com atenção aos fatos, aos riscos e às escolhas de cada cliente.</p>
+        <div class="hero__cta">
+          <a class="hero__btn" href="https://wa.me/555533077098?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20gostaria%20de%20agendar%20um%20atendimento" target="_blank" rel="noopener">Falar com o escritório</a>
+          <a class="hero__link" href="#espaco">Conhecer o espaço</a>
+        </div>
+      </div>
+      <a class="hero__scroll" href="#visao">Descer</a>
+      <p class="hero__place">Escritório em Santa Maria · RS</p>
     </section>
 
     <!-- ============ MANIFESTO ============ -->
-    <section class="statement" aria-label="Nossa visão">
+    <section class="statement" id="visao" aria-label="Nossa visão">
       <div class="wrap reveal">
         <blockquote>
           “Confiança, responsabilidade e atendimento pessoal: aquilo que é essencial à relação entre advogado e cliente.”
