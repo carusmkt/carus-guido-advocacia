@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://carusguido.adv.br/sitemap.xml
+Sitemap: https://carusguidoadvocacia.com.br/sitemap.xml
