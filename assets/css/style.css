@@ -482,6 +482,10 @@ em { font-style: italic; }
 .footer__nav a:hover { text-decoration: underline; }
 .footer__bottom { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; padding-top: 1.8rem; color: var(--muted); font-size: .78rem; }
 .footer__bottom p { margin: 0; }
+.footer__credit { margin: 1.4rem 0 0; font-size: .68rem; letter-spacing: .06em; color: var(--muted); }
+.footer__credit a { text-decoration: none; transition: color .3s var(--ease); }
+.footer__credit a:hover { color: var(--text); text-decoration: underline; }
+@media (max-width: 860px) { .footer__credit a { display: inline-block; padding: .6rem 0; } }
 
 /* ---------- WhatsApp flutuante ---------- */
 .float-wa {
